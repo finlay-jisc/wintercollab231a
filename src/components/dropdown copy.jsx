@@ -52,25 +52,16 @@ export default function ProductsDropdown2({ setPinned }) {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-          <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div>
-              <h3 className="font-semibold text-gray-1200">Your Products</h3>
-            </div>
+        <Popover.Panel className="absolute z-10 mt-5 flex px-4 top-10 -right-full sm:max-w-sm">
+          <div className="w-64 flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+            <h3 className="font-semibold text-gray-1200 py-4">Your Products</h3>
+            <hr></hr>
             <div
-              className="p-4"
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: "space-evenly"
-              }}
+              className="p-4 flex flex-col items-center"
             >
               {yourProducts.slice(0, yourLimit).map((item) => (
                 <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
                   <Product name={item.name} href={item.href} icon={item.icon} setPinned={enablePinning && setPinned} />
-                  <div>
-                  </div>
                 </div>
               ))}
               {
