@@ -32,13 +32,9 @@ const callsToAction = [
 export default function ProductsDropdown2({ setPinned }) {
   const enablePinning = true;
   const [yourLimit, setYourLimit] = useState(8);
-  const [relatedLimit, setRelatedLimit] = useState(4);
 
   const showMoreProducts = () => {
     setYourLimit(yourLimit + 2)
-  }
-  const showMoreRelatedProducts = () => {
-    setRelatedLimit(relatedLimit + 2)
   }
 
   return (
