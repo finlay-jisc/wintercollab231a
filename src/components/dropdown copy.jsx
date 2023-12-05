@@ -24,18 +24,6 @@ const yourProducts = [
   { name: 'Product 10', href: '#', icon: ArrowPathIcon },
 ]
 
-const relatedProducts = [
-  { name: 'Product 1', href: '#', icon: ChartPieIcon },
-  { name: 'Product 2', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Product 3', href: '#', icon: FingerPrintIcon },
-  { name: 'Product 4', href: '#', icon: SquaresPlusIcon },
-  { name: 'Product 5', href: '#', icon: ArrowPathIcon },
-  { name: 'Product 6', href: '#', icon: ChartPieIcon },
-  { name: 'Product 7', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Product 8', href: '#', icon: FingerPrintIcon },
-  { name: 'Product 9', href: '#', icon: SquaresPlusIcon },
-  { name: 'Product 10', href: '#', icon: ArrowPathIcon },
-]
 const callsToAction = [
   { name: 'All Products', href: '#', icon: PlayCircleIcon },
 ]
@@ -99,34 +87,6 @@ export default function ProductsDropdown2({ setPinned }) {
                   </Button>
               }
 
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-1200">Related Products</h3>
-            </div>
-            <div className="p-4"
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: "space-evenly"
-              }}
-            >
-              {relatedProducts.slice(0, relatedLimit).map((item) => (
-                <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
-                  <Product name={item.name} href={item.href} icon={item.icon} />
-                  <div>
-                  </div>
-                </div>
-              ))}
-              {
-                relatedProducts.length === relatedLimit ?
-                  <></> : <Button
-                    endIcon={<ArrowPathIcon />}
-                    onClick={showMoreRelatedProducts}
-                  >
-                    show more products
-                  </Button>
-              }
             </div>
             <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
               {callsToAction.map((item) => (
