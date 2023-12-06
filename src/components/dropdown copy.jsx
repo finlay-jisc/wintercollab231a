@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { Tooltip } from '@mui/material';
+import { Button, Tooltip } from '@mui/material';
 import {
   ArrowPathIcon,
   ChartPieIcon,
@@ -10,6 +10,9 @@ import {
   SquaresPlusIcon,
 } from '@heroicons/react/24/outline'
 import Product from './Product'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faGridRound } from '@fortawesome/pro-solid-svg-icons'
 
 const yourProducts = [
   { name: 'Product 1', href: '#', icon: ChartPieIcon },
@@ -32,7 +35,7 @@ export default function ProductsDropdown2() {
     <Popover className="relative">
       <Tooltip title="Jisc products">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-        <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+        <FontAwesomeIcon icon={faGridRound}></FontAwesomeIcon>
       </Popover.Button>
       </Tooltip>
       <Transition
@@ -45,8 +48,13 @@ export default function ProductsDropdown2() {
         leaveTo="opacity-0 translate-y-1"
       >
         <Popover.Panel className="absolute z-10 mt-5 flex px-4 top-10 -right-full sm:max-w-sm">
-          <div className="w-64 flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <h3 className="font-semibold text-gray-1200 py-4">Your Products</h3>
+          <div className="w-64 p-4 flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+          <h3 className="font-semibold text-gray-800 py-4">Pin your favourite...</h3>
+            <h4 className="font-normal text-gray-800 pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+            <div className="border-solid border-opacity-100 border-black border">
+              <FontAwesomeIcon className="pr-4" icon={faMagnifyingGlass} />
+              <input type='text' className="border-none" placeholder='Search for product' />
+            </div>
             <hr></hr>
             <div
               className="p-4 flex flex-col items-center"
@@ -58,6 +66,7 @@ export default function ProductsDropdown2() {
               ))}
 
             </div>
+            <Button className="mb-4" variant="contained">Save pins</Button>
           </div>
         </Popover.Panel>
       </Transition>
