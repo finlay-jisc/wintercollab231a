@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { BoltIcon } from '@heroicons/react/20/solid';
+import { Tooltip } from '@mui/material';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -14,10 +14,12 @@ export default function UserInfo() {
 return (
         <Menu as="div" className="relative ml-3">
         <div>
+        <Tooltip title="Account">
         <Menu.Button className="flex rounded-full bg-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mx-2 sm:mx-6">
             <span className="sr-only">Open user menu</span>
         <p className='text-gray-100'>A.Smith</p>
         </Menu.Button>
+        </Tooltip>
         </div>
         <Transition
         as={Fragment}

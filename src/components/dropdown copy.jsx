@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { Tooltip } from '@mui/material';
 import {
   ArrowPathIcon,
   ChartPieIcon,
@@ -39,10 +40,11 @@ export default function ProductsDropdown2({ setPinned }) {
 
   return (
     <Popover className="relative">
+      <Tooltip title="Jisc products">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
         <Bars3Icon className="h-5 w-5" aria-hidden="true" />
       </Popover.Button>
-
+      </Tooltip>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-200"
