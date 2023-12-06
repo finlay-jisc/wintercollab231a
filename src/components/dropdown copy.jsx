@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { Tooltip } from '@mui/material';
@@ -9,7 +9,6 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
 } from '@heroicons/react/24/outline'
-import Button from '@mui/material/Button';
 import Product from './Product'
 
 const yourProducts = [
@@ -25,18 +24,9 @@ const yourProducts = [
   { name: 'Product 10', href: '#', icon: ArrowPathIcon },
 ]
 
-const callsToAction = [
-  { name: 'All Products', href: '#', icon: PlayCircleIcon },
-]
-
 // eslint-disable-next-line react/prop-types
 export default function ProductsDropdown2({ setPinned }) {
   const enablePinning = true;
-  const [yourLimit, setYourLimit] = useState(8);
-
-  const showMoreProducts = () => {
-    setYourLimit(yourLimit + 2)
-  }
 
   return (
     <Popover className="relative">
@@ -61,33 +51,12 @@ export default function ProductsDropdown2({ setPinned }) {
             <div
               className="p-4 flex flex-col items-center"
             >
-              {yourProducts.slice(0, yourLimit).map((item) => (
+              {yourProducts.map((item) => (
                 <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
                   <Product name={item.name} href={item.href} icon={item.icon} setPinned={enablePinning && setPinned} />
                 </div>
               ))}
-              {
-                yourProducts.length === yourLimit ?
-                  <></> : <Button
-                    endIcon={<ArrowPathIcon />}
-                    onClick={showMoreProducts}
-                  >
-                    show more products
-                  </Button>
-              }
 
-            </div>
-            <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-              {callsToAction.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
-                >
-                  <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                  {item.name}
-                </a>
-              ))}
             </div>
           </div>
         </Popover.Panel>
