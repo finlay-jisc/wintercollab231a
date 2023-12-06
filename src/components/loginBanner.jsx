@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from 'react'
+import React, {  useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import ProductsDropdown2 from './dropdown copy'
 import UserInfo from './userInfo'
-import Product from './Product'
 // import { textAlign } from '@mui/system'
 
 export default function LoginBanner() {
@@ -58,25 +57,6 @@ export default function LoginBanner() {
               {/* <Services /> */}
             </div>
           </div>
-        </div>
-      </Disclosure>
-      <Disclosure as="nav" className="bg-stone-800"  >
-        <div style={{
-          color: "white",
-          justifyContent: 'left',
-          textAlign: "left",
-          display: "flex",
-          flexDirection: "row",
-          // paddingLeft: "160px"
-          // paddingLeft: "0px"
-          // backgroundColor: "800",
-          // borderBottom: pinned.length > 0 ? "solid 1px #E85E13" : ""
-        }} className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          {pinned.map(p => (
-            <div key={p.name} className="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
-              <Product name={p.name} icon={p.icon} lpad={0} colour="white" href="" />
-            </div>
-          ))}
         </div>
       </Disclosure>
 
