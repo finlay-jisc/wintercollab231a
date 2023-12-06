@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { Tooltip } from '@mui/material';
@@ -25,8 +25,8 @@ const yourProducts = [
 ]
 
 // eslint-disable-next-line react/prop-types
-export default function ProductsDropdown2({ setPinned }) {
-  const enablePinning = true;
+export default function ProductsDropdown2() {
+  const [pinnedProducts, setPinnedProducts] = useState([]);
 
   return (
     <Popover className="relative">
@@ -53,7 +53,7 @@ export default function ProductsDropdown2({ setPinned }) {
             >
               {yourProducts.map((item) => (
                 <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
-                  <Product name={item.name} href={item.href} icon={item.icon} setPinned={enablePinning && setPinned} />
+                  <Product name={item.name} href={item.href} icon={item.icon} pinnedProducts={pinnedProducts} setPinnedProducts={setPinnedProducts} />
                 </div>
               ))}
 
